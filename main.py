@@ -12,8 +12,20 @@ def main():
     # regular_wage = reg_hours * reg_rate
     # total_wage = regular_wage + overtime_wage
 
-    print(f"Regular hours: {reg_hours} Regular Charge: {regular_wage}")
-    print(f"Overtime hours: {overtime} Overtime Charge: {overtime_wage:.2f}")
+    if workhours > reg_hours:
+        overtime_hours = workhours - reg_hours
+        regular_wage = reg_hours * reg_rate
+        overtime_wage = overtime_hours * ov_rate
+    else:
+        overtime_hours = 0
+        regular_wage = workhours * reg_rate
+        overtime_wage = 0
+
+
+    total_wage = regular_wage + overtime_wage
+
+    print(f"\nRegular hours: {reg_hours} Regular Charge: {regular_wage}")
+    print(f"Overtime hours: {overtime_hours} Overtime Charge: {overtime_wage:.2f}\n")
     print(f"Total wage : {total_wage:.2f}")
 
    ##################################################
